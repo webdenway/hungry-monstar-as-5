@@ -10,7 +10,7 @@ mealSearch.addEventListener('click', function(){
     const findMeals = foods => {
         // console.log(foods)
             allMeals.innerHTML = "";
-            if(foods.meals){
+            if(foods.meals && searchItem != ""){
                 foods.meals.forEach(meal => {
                    const mealInfo = `
                     <div class="single-meal" onclick= "info('${meal.strMeal}')">
@@ -18,20 +18,13 @@ mealSearch.addEventListener('click', function(){
                     <h3>${meal.strMeal}</h3> 
                     </div>      
                      `;
-
                      allMeals.innerHTML += mealInfo;
-     
                  });
-               
-            }
+             }
             else{
                 allMeals.innerHTML = `<h3 class="no-information">Sorry! we didn't get your favorite meal.</h3>`;
             }
-
     }
-
-
-
 });
 
 
@@ -63,9 +56,7 @@ const info = items => {
     </ul>
     </div>
     `;
-   
     mealInfo.innerHTML = infoHtml;
-
     });
     
     mealInfo.style.display= 'block';
@@ -77,7 +68,6 @@ const info = items => {
     })
 
     }
-
 }
 
 
